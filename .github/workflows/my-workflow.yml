@@ -11,3 +11,9 @@ jobs:
 
       - name: hello-action
         uses: ./.github/actions/hello-world
+      - name: create-issue
+        uses: ./.github/actions/issue-maker
+        with: 
+          repoToken: ${{secrets.GITHUB_TOKEN}}
+          catFact: ${{steps.cat.outputs.fact}}
+          issueTitle: "a cat fact for you"
